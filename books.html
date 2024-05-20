@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Review - Books</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            background-color: #DFD0B8;
+        }
+        .navbar {
+            background-color: #153448;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: #ffffff;
+        }
+        footer {
+            background-color: #948979;
+            color: white;
+            margin-top: auto;
+            height: 80px;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .form-section {
+            display: none;
+        }
+        .container {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">BookReview</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container text-center my-4">
+        <h2>Books Collection</h2>
+        <p>Explore our wide range of books.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="searchForm">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search / Get Suggestion ..." id="searchInput">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" onclick="searchBooks()">Search / Suggestion</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center my-3">
+            <div class="col-md-6">
+                <button class="btn btn-success" type="button" onclick="toggleForm()">Add Review</button>
+            </div>
+        </div>
+        <div class="row" id="searchResults"></div>
+
+        <div class="row justify-content-center form-section" id="reviewFormSection">
+            <div class="col-md-6">
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="bookPhoto">Book Photo</label>
+                        <input type="file" class="form-control-file" id="bookPhoto">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookName">Book Name</label>
+                        <input type="text" class="form-control" id="bookName" placeholder="Enter book name">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookReview">Review</label>
+                        <textarea class="form-control" id="bookReview" rows="3" placeholder="Enter your review"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitReview()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-3">
+        <p>Contact : booksuggestion@diu.edu.bd</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function searchBooks() {
+            var query = document.getElementById('searchInput').value;
+            var resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = '';
+
+            var books = [
+                { title: 'Angels & Demons', author: 'Dan Brown', review: 'A thrilling blend of science, religion, and mystery.' },
+                { title: 'Romeo and Juliet', author: 'William Shakespeare', review: 'A timeless tale of star-crossed lovers.' },
+                { title: 'The Secret Garden', author: 'Frances Hodgson Burnett', review: 'A charming and heartwarming tale.' },
+                { title: 'Pride and Prejudice', author: 'Jane Austen', review: 'An iconic novel exploring themes of love, class, and marriage.' },
+                { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', review: 'A masterpiece depicting the American Dream and its corruption.' },
+                { title: 'The Catcher in the Rye', author: 'J.D. Salinger', review: 'A classic coming-of-age novel capturing teenage angst and alienation.' },
+                { title: 'Harry Potter and the Sorcerer\'s Stone', author: 'J.K. Rowling', review: 'The magical beginning of a beloved fantasy series.' },
+                { title: 'The Hobbit', author: 'J.R.R. Tolkien', review: 'An enchanting adventure in Middle-earth.' },
+                { title: '1984', author: 'George Orwell', review: 'A dystopian classic exploring surveillance, oppression, and truth.' },
+                { title: 'The Picture of Dorian Gray', author: 'Oscar Wilde', review: 'A haunting tale of vanity, decadence, and moral corruption.' },
+                { title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', review: 'An epic fantasy trilogy set in the world of Middle-earth.' },
+                { title: 'Frankenstein', author: 'Mary Shelley', review: 'A seminal work of Gothic fiction exploring themes of creation, identity, and morality.' }
+            ];
+            
+
+            var filteredBooks = books.filter(book => book.title.toLowerCase().includes(query.toLowerCase()));
+
+            if (filteredBooks.length > 0) {
+                filteredBooks.forEach(book => {
+                    var bookElement = document.createElement('div');
+                    bookElement.classList.add('col-md-4', 'mb-3');
+                    bookElement.innerHTML = `
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${book.title}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${book.author}</h6>
+                                <p class="card-text">${book.review}</p>
+                            </div>
+                        </div>
+                    `;
+                    resultsContainer.appendChild(bookElement);
+                });
+            } else {
+                resultsContainer.innerHTML = '<p class="text-center">No books found.</p>';
+            }
+        }
+
+        function toggleForm() {
+            var formSection = document.getElementById('reviewFormSection');
+            formSection.style.display = formSection.style.display === 'none' || formSection.style.display === '' ? 'block' : 'none';
+        }
+
+        function submitReview() {
+            var bookPhoto = document.getElementById('bookPhoto').files[0];
+            var bookName = document.getElementById('bookName').value;
+            var bookReview = document.getElementById('bookReview').value;
+            console.log({
+                photo: bookPhoto,
+                name: bookName,
+                review: bookReview
+            });
+
+            alert('Review submitted successfully!');
+
+
+            document.getElementById
+            ('reviewForm').reset();
+        document.getElementById('reviewFormSection').style.display = 'none';
+    }
+</script>
+</body>
+</html>

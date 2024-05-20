@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Review - Home</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #EEEEEE;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #35374B;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: #344955;
+            color: #fff;
+            padding: 2rem 1rem;
+            border-radius: 0px;
+        }
+        .jumbotron h1 {
+            font-size: 3rem;
+        }
+        .jumbotron p {
+            font-size: 1.2rem;
+        }
+        .container h2 {
+            color: #81689D;
+            margin-top: 50px;
+        }
+        .card {
+            transition: transform 0.2s;
+            border: none;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-body {
+            background-color: #9DDE8B;
+            border-top: 5px solid #81689D;
+            border-radius: 5px;
+        }
+        .card-title {
+            color: #ffffff;
+        }
+        .btn-review {
+            background-color: #81689D;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .btn-review:hover {
+            background-color: #ffffff;
+        }
+        footer {
+            background-color: #2D3250;
+            color: white;
+            padding: 20px 0;
+            text-align: end;
+            position: static;
+        }
+        .fa-facebook-f {
+            font-size: 25px;
+            color: white;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .fa-at {
+            font-size: 25px;
+            color: white;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .fa-instagram {
+            font-size: 25px;
+            color: white;
+        }
+        .fa-youtube {
+            font-size: 25px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">BookReview</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+               
+            </ul>
+        </div>
+    </nav>
+
+    <header class="jumbotron text-center">
+        <h1>Welcome to BookReview</h1>
+        <p>Your one-stop destination for book reviews</p>
+    </header>
+
+    <div class="container text-center my-4">
+        <h2>Featured Books</h2>
+        <p>Explore our collection of featured books and read reviews from other readers.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/Book1.jpg" class="card-img-top" alt="Book 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Angels & Demons</h5>
+                        <button class="btn btn-review" onclick="showReview('review1')">Show Review</button>
+                        <p id="review1" style="display:none;">Dan Brown's "Angels and Demons" is a thrilling blend of science, religion, and mystery.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/Book2.jpg" class="card-img-top" alt="Book 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Romeo and Juliet</h5>
+                        <button class="btn btn-review" onclick="showReview('review2')">Show Review</button>
+                        <p id="review2" style="display:none;">William Shakespeare's "Romeo and Juliet" is a timeless tale of star-crossed lovers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/Book3.jpg" class="card-img-top" alt="Book 3">
+                    <div class="card-body">
+                        <h5 class="card-title">The Secret Garden</h5>
+                        <button class="btn btn-review" onclick="showReview('review3')">Show Review</button>
+                        <p id="review3" style="display:none;">Frances Hodgson Burnett's "The Secret Garden" is a charming and heartwarming tale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="table-contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h4 class="float-left">Contact Us</h4>
+                    <div class="social-icons float-left ml-3">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:example@example.com"><i class="fa-solid fa-at"></i></a>
+                        <a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showReview(id) {
+            var review = document.getElementById(id);
+            review.style.display = (review.style.display === "none" || review.style.display === "") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

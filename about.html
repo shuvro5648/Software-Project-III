@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Review - About & Contact</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #26547c63;
+        }
+        .navbar {
+            background-color: #2b0b058f;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .jumbotron-about {
+            background-color: #193647;
+            color: #fff;
+            padding: 2rem 1rem;
+            border-radius: 0px;
+        }
+        .jumbotron-contact {
+            background-color: transparent; /* Different color for contact us */
+            color: #fff;
+            padding: 2rem 1rem;
+            border-radius: 0px;
+        }
+        .jumbotron h1 {
+            font-size: 3rem;
+        }
+        .jumbotron p {
+            font-size: 1.2rem;
+        }
+        .section {
+            margin-top: 50px;
+        }
+        footer {
+            background-color: #aa7d75;
+            color: white;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">BookReview</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="books.html">Books</a></li>
+                <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="jumbotron jumbotron-about text-center">
+        <h1>About Us</h1>
+        <p>Learn more about BookReview</p>
+    </header>
+
+    <div class="container text-center my-4 section">
+        <p>BookReview is your go-to platform for honest and detailed book reviews. Our mission is to help readers discover amazing books and share their experiences with the community.</p>
+    </div>
+
+    <header class="jumbotron jumbotron-contact text-center section">
+        <h1>Contacts</h1>
+        <p>Get in touch with us for any queries or feedback.</p>
+    </header>
+
+    <div class="container my-4">
+        <p class="text-center"><strong>Email:</strong> <a href="mailto:booksuggestion@diu.edu.bd">booksuggestion@diu.edu.bd</a></p>
+        <p class="text-center"><strong>Phone:</strong> 01891908029</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputName">Name</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Your Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" placeholder="Your City">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Your Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputContactNumber">Contact Number</label>
+                    <input type="tel" class="form-control" id="inputContactNumber" placeholder="Your Contact Number">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
